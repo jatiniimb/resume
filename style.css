@@ -1,17 +1,18 @@
 /* Colours, fonts and spacing scale, defined once as variables */
 :root {
-  --bg: #F6F4EF;
+  --bg: #F5F7F4;
   --surface: #FFFFFF;
   --text: #1C1C1C;
   --text-2: #4B5058;
-  --line: #D8D4CB;
-  --accent: #1F4E79;
-  --font-head: "Source Serif 4", Georgia, serif;
+  --line: #C5D0C8;
+  --accent: #1E6B52;
+  --font-head: "Lora", Georgia, serif;
   --font-body: "Inter", Arial, sans-serif;
   --space-1: 8px;
   --space-2: 24px;
   --space-3: 40px;
   --space-4: 64px;
+  --space-5: 80px;
   --edge: 24px;
 }
 
@@ -26,7 +27,7 @@ body {
   line-height: 1.6;
 }
 h1, h2, h3, h4 { font-family: var(--font-head); line-height: 1.2; }
-h1 { font-size: clamp(2.25rem, 6vw, 3.25rem); margin: 0 0 var(--space-2); }
+h1 { font-size: clamp(2.75rem, 8vw, 4.5rem); line-height: 1.1; margin: 0 0 var(--space-2); }
 h2 { font-size: 1.75rem; margin: 0 0 var(--space-2); }
 h3 { font-size: 1.25rem; margin: 0 0 4px; }
 p { margin: 0 0 var(--space-1); max-width: 68ch; }
@@ -111,9 +112,9 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .button:hover { background: var(--surface); color: var(--accent); }
 .text-link { display: inline-block; padding: 10px 0; }
 
-/* Hero (#hero): name, one sentence, goal and ways to reach me */
-#hero { padding-top: var(--space-4); }
-.lead { font-size: 1.25rem; line-height: 1.5; max-width: 60ch; }
+/* Hero (#hero): big name, one sentence, goal, buttons and three figures */
+#hero { padding-top: var(--space-5); }
+.lead { font-size: 1.375rem; line-height: 1.5; max-width: 60ch; }
 .actions {
   display: flex;
   flex-wrap: wrap;
@@ -121,6 +122,23 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   gap: var(--space-2);
   margin: var(--space-2) 0 var(--space-1);
 }
+.figures {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin-top: var(--space-3);
+  max-width: none;
+}
+.figures li { margin: 0; padding-top: 16px; border-top: 1px solid var(--line); }
+.figure-number {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 2.75rem;
+  line-height: 1.1;
+}
+.figures span { color: var(--text-2); }
 
 /* Experience (#experience): flat cards in a two-column grid */
 .card-grid {
@@ -163,7 +181,7 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 /* Small screens: one column, tighter sheet */
 @media (max-width: 699px) {
-  .card-grid { grid-template-columns: 1fr; }
+  .card-grid, .figures { grid-template-columns: 1fr; }
   #resume { padding: var(--space-2); }
   .job { flex-direction: column; gap: 0; }
 }
